@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1.7-labs
 
 ARG NODE_VERSION=22.12.0
+ARG PNPM_VERSION=10.21.0
 FROM node:${NODE_VERSION}-slim AS base
 
 ENV PNPM_HOME=/usr/local/share/pnpm \
@@ -9,7 +10,7 @@ ENV PNPM_HOME=/usr/local/share/pnpm \
     CI=1
 
 WORKDIR /app
-RUN corepack enable
+RUN npm install -g pnpm@${PNPM_VERSION}
 
 FROM base AS deps
 ENV NODE_ENV=development
@@ -46,7 +47,7 @@ ENV PNPM_HOME=/usr/local/share/pnpm \
     PATH="${PNPM_HOME}:${PATH}"
 
 WORKDIR /app
-RUN corepack enable
+RUN npm install -g pnpm@${PNPM_VERSION}
 
 COPY --from=builder /app ./
 
