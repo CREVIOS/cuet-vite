@@ -12,6 +12,7 @@ ENV PNPM_HOME=/pnpm \
 WORKDIR /app
 RUN corepack disable >/dev/null 2>&1 || true \
     && npm install -g pnpm@${PNPM_VERSION}
+RUN apk add --no-cache git
 
 # Install dependencies with maximal caching by only copying manifests first.
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
