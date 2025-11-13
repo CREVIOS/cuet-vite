@@ -14,7 +14,7 @@ RUN corepack disable >/dev/null 2>&1 || true \
     && npm install -g pnpm@${PNPM_VERSION}
 
 # Install dependencies with maximal caching by only copying manifests first.
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
     pnpm install --frozen-lockfile
 
