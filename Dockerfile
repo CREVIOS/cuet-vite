@@ -15,6 +15,7 @@ RUN corepack disable >/dev/null 2>&1 || true \
 
 # Install dependencies with maximal caching by only copying manifests first.
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY patches ./patches
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
     pnpm install --frozen-lockfile
 
