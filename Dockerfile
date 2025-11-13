@@ -20,7 +20,7 @@ RUN pnpm build
 
 FROM base AS prod-deps
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile --prod
+RUN pnpm install --frozen-lockfile --prod --ignore-scripts
 
 FROM base AS runtime
 ENV NODE_ENV=production
