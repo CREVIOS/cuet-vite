@@ -1,58 +1,87 @@
-<p align="center">
-  <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://vite.dev/logo.svg" alt="Vite logo">
-  </a>
-</p>
-<br/>
-<p align="center">
-  <a href="https://npmjs.com/package/vite"><img src="https://img.shields.io/npm/v/vite.svg" alt="npm package"></a>
-  <a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
-  <a href="https://github.com/vitejs/vite/actions/workflows/ci.yml"><img src="https://github.com/vitejs/vite/actions/workflows/ci.yml/badge.svg?branch=main" alt="build status"></a>
-  <a href="https://chat.vite.dev"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord" alt="discord chat"></a>
-</p>
-<br/>
+# Welcome to React Router!
 
-# Vite ⚡
+A modern, production-ready template for building full-stack React applications using React Router.
 
-> Next Generation Frontend Tooling
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
 
-- 💡 Instant Server Start
-- ⚡️ Lightning Fast HMR
-- 🛠️ Rich Features
-- 📦 Optimized Build
-- 🔩 Universal Plugin Interface
-- 🔑 Fully Typed APIs
+## Features
 
-Vite (French word for "quick", pronounced [`/vit/`](https://cdn.jsdelivr.net/gh/vitejs/vite@main/docs/public/vite.mp3), like "veet") is a new breed of frontend build tooling that significantly improves the frontend development experience. It consists of two major parts:
+- 🚀 Server-side rendering
+- ⚡️ Hot Module Replacement (HMR)
+- 📦 Asset bundling and optimization
+- 🔄 Data loading and mutations
+- 🔒 TypeScript by default
+- 🎉 TailwindCSS for styling
+- 📖 [React Router docs](https://reactrouter.com/)
 
-- A dev server that serves your source files over [native ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), with [rich built-in features](https://vite.dev/guide/features.html) and astonishingly fast [Hot Module Replacement (HMR)](https://vite.dev/guide/features.html#hot-module-replacement).
+## Getting Started
 
-- A [build command](https://vite.dev/guide/build.html) that bundles your code with [Rollup](https://rollupjs.org), pre-configured to output highly optimized static assets for production.
+### Installation
 
-In addition, Vite is highly extensible via its [Plugin API](https://vite.dev/guide/api-plugin.html) and [JavaScript API](https://vite.dev/guide/api-javascript.html) with full typing support.
+Install the dependencies:
 
-[Read the Docs to Learn More](https://vite.dev).
+```bash
+npm install
+```
 
-## Packages
+### Development
 
-| Package                                         | Version (click for changelogs)                                                                                                    |
-| ----------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| [vite](packages/vite)                           | [![vite version](https://img.shields.io/npm/v/vite.svg?label=%20)](packages/vite/CHANGELOG.md)                                    |
-| [@vitejs/plugin-legacy](packages/plugin-legacy) | [![plugin-legacy version](https://img.shields.io/npm/v/@vitejs/plugin-legacy.svg?label=%20)](packages/plugin-legacy/CHANGELOG.md) |
-| [create-vite](packages/create-vite)             | [![create-vite version](https://img.shields.io/npm/v/create-vite.svg?label=%20)](packages/create-vite/CHANGELOG.md)               |
+Start the development server with HMR:
 
-## Contribution
+```bash
+npm run dev
+```
 
-See [Contributing Guide](CONTRIBUTING.md).
+Your application will be available at `http://localhost:5173`.
 
-## License
+## Building for Production
 
-[MIT](LICENSE).
+Create a production build:
 
-## Sponsors
+```bash
+npm run build
+```
 
-<p align="center">
-  <a target="_blank" href="https://github.com/sponsors/yyx990803">
-    <img alt="sponsors" src="https://sponsors.vuejs.org/vite.svg?v2">
-  </a>
-</p>
+## Deployment
+
+### Docker Deployment
+
+To build and run using Docker:
+
+```bash
+docker build -t my-app .
+
+# Run the container
+docker run -p 3000:3000 my-app
+```
+
+The containerized application can be deployed to any platform that supports Docker, including:
+
+- AWS ECS
+- Google Cloud Run
+- Azure Container Apps
+- Digital Ocean App Platform
+- Fly.io
+- Railway
+
+### DIY Deployment
+
+If you're familiar with deploying Node applications, the built-in app server is production-ready.
+
+Make sure to deploy the output of `npm run build`
+
+```
+├── package.json
+├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
+├── build/
+│   ├── client/    # Static assets
+│   └── server/    # Server-side code
+```
+
+## Styling
+
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+
+---
+
+Built with ❤️ using React Router.

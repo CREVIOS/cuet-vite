@@ -20,6 +20,7 @@ jobs:
       contents: read
     env:
       IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/cuet-vite
+      VITE_API_URL: https://api.prod.example.com
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -61,5 +62,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
+          build-args: |
+            VITE_API_URL=${{ env.VITE_API_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
