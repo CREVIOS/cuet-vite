@@ -10,7 +10,7 @@
     "prepare": "simple-git-hooks"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm exec lint-staged --concurrent false"
+    "pre-commit": "export PATH=\"$HOME/.nvm/versions/node/v22.19.0/bin:$PATH\" && pnpm exec lint-staged --concurrent false"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "echo 'Linting staged files...'"
