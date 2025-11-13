@@ -27,14 +27,10 @@ RUN apt-get update \
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY patches ./patches
 
-# Pre-fetch dependencies into the pnpm store so later installs can run offline.
-RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
-    pnpm fetch
-
 FROM deps AS builder
 COPY . .
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
-    pnpm install --offline --frozen-lockfile
+    pnpm install --frozen-lockfile
 RUN pnpm run build
 
 FROM node:${NODE_VERSION}-slim AS runtime
