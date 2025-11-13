@@ -10,7 +10,8 @@ ENV PNPM_HOME=/pnpm \
     NODE_ENV=production
 
 WORKDIR /app
-RUN corepack enable || npm install -g pnpm@${PNPM_VERSION}
+RUN corepack disable >/dev/null 2>&1 || true \
+    && npm install -g pnpm@${PNPM_VERSION}
 
 # Install dependencies with maximal caching by only copying manifests first.
 COPY package.json pnpm-lock.yaml ./
